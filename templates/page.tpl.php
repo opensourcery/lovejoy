@@ -95,24 +95,24 @@
     <?php endif; ?>
 
     <?php if ($site_name || $site_slogan): ?>
-      <div id="name-and-slogan"<?php if ($hide_site_name && $hide_site_slogan) { print ' class="element-invisible"'; } ?>>
+      <div id="name-and-slogan"<?php if ($hide_site_name && $hide_site_slogan): print ' class="element-invisible"'; endif; ?>>
 
         <?php if ($site_name): ?>
           <?php if ($title): ?>
-            <div id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
+            <div id="site-name"<?php if ($hide_site_name): print ' class="element-invisible"'; endif; ?>>
               <strong>
                 <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
               </strong>
             </div>
           <?php else: /* Use h1 when the content title is empty */ ?>
-            <h1 id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
+            <h1 id="site-name"<?php if ($hide_site_name): print ' class="element-invisible"'; endif; ?>>
               <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
             </h1>
           <?php endif; ?>
         <?php endif; ?>
 
         <?php if ($site_slogan): ?>
-          <div id="site-slogan"<?php if ($hide_site_slogan) { print ' class="element-invisible"'; } ?>>
+          <div id="site-slogan"<?php if ($hide_site_slogan): print ' class="element-invisible"'; endif; ?>>
             <?php print $site_slogan; ?>
           </div>
         <?php endif; ?>
@@ -122,22 +122,22 @@
   
     <?php if ($main_menu): ?>
       <div id="main-menu" class="navigation">
-		<?php if ($page['branding']): ?>
-		   <div id="branding"><?php print render($page['branding']); ?></div>
-		<?php endif; ?>	
-		<?php if ($page['user_first']): ?>
-	  		<div id="user-first"><?php print render($page['user_first']); ?></div>
-	  	<? endif; ?>
-	  	<?php if ($page['user_second']): ?>
-	  		<div id="user-second"><?php print render($page['user_second']); ?></div>
-	  	<? endif; ?>
-		<?php if ($page['header_first']): ?>
-	  		<div id="header-first"><?php print render($page['header_first']); ?></div>
-		<?php endif; ?>
-		<?php if ($page['header_second']): ?>
-	  		<div id="header-second"><?php print render($page['header_second']); ?></div>
-		<?php endif; ?>
-        <?php print theme('links__system_main_menu', array(
+      <?php if ($page['branding']): ?>
+        <div id="branding"><?php print render($page['branding']); ?></div>
+      <?php endif; ?>  
+      <?php if ($page['user_first']): ?>
+        <div id="user-first"><?php print render($page['user_first']); ?></div>
+      <?php endif; ?>
+      <?php if ($page['user_second']): ?>
+        <div id="user-second"><?php print render($page['user_second']); ?></div>
+      <?php endif; ?>
+      <?php if ($page['header_first']): ?>
+        <div id="header-first"><?php print render($page['header_first']); ?></div>
+      <?php endif; ?>
+      <?php if ($page['header_second']): ?>
+        <div id="header-second"><?php print render($page['header_second']); ?></div>
+      <?php endif; ?>
+      <?php print theme('links__system_main_menu', array(
           'links' => $main_menu,
           'attributes' => array(
             'id' => 'main-menu-links',
@@ -183,14 +183,14 @@
       <div id="breadcrumb"><?php print $breadcrumb; ?></div>
     <?php endif; ?>
 
-	<?php if ($page['preface_first'] || $page['preface_second'] || $page['preface_third']): ?>
-	  <div id="triptych-wrapper"><div id="triptych" class="clearfix">
-	    <?php print render($page['preface_first']); ?>
-	    <?php print render($page['preface_second']); ?>
-	    <?php print render($page['preface_third']); ?>
-	  </div></div> <!-- /#triptych, /#triptych-wrapper -->
-	<?php endif; ?>
-	
+  <?php if ($page['preface_first'] || $page['preface_second'] || $page['preface_third']): ?>
+    <div id="triptych-wrapper"><div id="triptych" class="clearfix">
+      <?php print render($page['preface_first']); ?>
+      <?php print render($page['preface_second']); ?>
+      <?php print render($page['preface_third']); ?>
+    </div></div> <!-- /#triptych, /#triptych-wrapper -->
+  <?php endif; ?>
+  
     <?php if ($page['sidebar_first']): ?>
       <div id="sidebar-first" class="column sidebar"><div class="section">
         <?php print render($page['sidebar_first']); ?>
